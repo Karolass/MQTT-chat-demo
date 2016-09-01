@@ -35,9 +35,14 @@ gulp
 
 # 開發用
 gulp watch
+```
 
-# server run
-cd dist
+## How to run MQTT broker server
+
+[must build dist first](#how-to-build)
+
+```bash
+cd server/dist
 node index.js
 ```
 
