@@ -1,0 +1,27 @@
+{
+  "name": "mqtt-chat-demo-server",
+  "version": "1.0.0",
+  "description": "mqtt chat demo - server",
+  "main": "index.js",
+  "dependencies": {
+    "babel-runtime": "^6.11.6",
+    "mosca": "^2.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.13.2",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-transform-runtime": "^6.12.0",
+    "babel-preset-es2015": "^6.13.2",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-eslint": "^3.0.1",
+    "gulp-if": "^2.0.1"
+  },
+  "author": "karolass <tark810145@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Karolass/MQTT-chat-demo.git"
+  },
+  "license": "MIT"
+}
