@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MQTT chat demo</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/chat.css" rel="stylesheet">
+
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Chat login</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label for="modalInputEmail" class="col-sm-3 control-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="modalInputEmail" placeholder="test@example.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modalInputUsername" class="col-sm-3 control-label">User Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="modalInputUsername" placeholder="路人甲乙丙丁">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="modalSubmit" type="button" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="wrapper">
+        <div id="sidebar-wrapper" class="people-list">
+        <div class="github">
+            <a class="btn btn-default" href="https://github.com/Karolass/MQTT-chat-demo" target="_blank">
+                <span><i class="fa fa-github" aria-hidden="true"></i> &nbsp; View Project</span>
+            </a>
+        </div>
+        <div class="form-group has-feedback">
+            <input type="text" class="form-control" placeholder="filter by name" aria-describedby="inputWarning2Status">
+            <span class="form-control-feedback" aria-hidden="true"><i class="fa fa-search"></i></span>
+        </div>
+        <ul class="list"></ul>
+    </div>
+
+        <div id="page-content-wrapper">
+        <div class="menu">
+            <button id="menu-toggle"><i class="fa fa-list fa-2x" aria-hidden="true"></i></button>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="chat">
+                        <div class="chat-header clearfix">
+                            <img src="https://randomuser.me/api/portraits/thumb/men/10.jpg" alt="avatar" />
+                            <div class="about">
+                                <div class="name">This is demo chat. Click someone starting chat in the left list.</div>
+                            </div>
+                        </div>
+
+                        <div class="chat-history">
+                            <ul>
+                              <li class="clearfix">
+                                <div class="message-data align-right">
+                                  <span class="message-data-time" >10:10 AM, Today</span>
+                                  <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
+                                </div>
+                                <div class="message my-message">
+                                  Hi Vincent, how are you? How is the project coming along?
+                                </div>
+                              </li>
+                              
+                              <li class="clearfix">
+                                <div class="message-data">
+                                  <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
+                                  <span class="message-data-time">10:12 AM, Today</span>
+                                </div>
+                                <div class="message friend-message">
+                                  Are we meeting today? Project has been already finished and I have results to show you.
+                                </div>
+                              </li>
+                              
+                              <li class="clearfix">
+                                <div class="message-data align-right">
+                                  <span class="message-data-time" >10:14 AM, Today</span>
+                                  <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
+                                </div>
+                                <div class="message my-message">
+                                  Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you faced any problems at the last phase of the project?
+                                </div>
+                              </li>
+                              
+                              <li class="clearfix">
+                                <div class="message-data">
+                                  <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
+                                  <span class="message-data-time">10:20 AM, Today</span>
+                                </div>
+                                <div class="message friend-message">
+                                  Actually everything was fine. I'm very excited to show this to our team.
+                                </div>
+                              </li>
+                              
+                              <li class="clearfix">
+                                <div class="message-data">
+                                    <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
+                                    <span class="writing">
+                                        Typing
+                                        <i class="fa fa-circle"></i>
+                                        <i class="fa fa-circle"></i>
+                                        <i class="fa fa-circle"></i>
+                                    </span>
+                                </div>
+                              </li>
+                            </ul>
+                        </div>
+
+                        <div class="chat-message clearfix form-group">
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
+    <script src="js/mqttDemo.js"></script>
+    <script>
+    /* sidebar toggle */
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+    /* chat block height */
+    function resizeChatblock() {
+        var height = $(window).height() - $('#page-content-wrapper').outerHeight() + $('.chat-history').outerHeight();
+        $('.chat-history').css('height', height);
+        setTimeout(resizeChatblock, 600);
+    }
+    resizeChatblock();
+    </script>
+
+</body>
+</html>
