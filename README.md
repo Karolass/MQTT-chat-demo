@@ -51,7 +51,7 @@ node index.js
 ### client
 ```
 client
-├── dist - 專案輸出資料夾. 非輸出的檔案(EX: bootstrap...等等)請勿刪除.
+├── dist - 專案輸出資料夾.
 ├── src - 專案開發資料夾.
 │   ├── ejs - HTML template.
 │   │   ├── components - components of index.ejs

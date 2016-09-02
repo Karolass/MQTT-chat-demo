@@ -44,6 +44,9 @@ gulp.task('html', () => {
     gulp.src(inPaths.html)
         .pipe(ejs({}, {ext: '.html'}))
         .pipe(gulp.dest(outPaths.html))
+
+    gulp.src('./src/favicon.ico')
+        .pipe(gulp.dest(outPaths.html))
 })
 
 /* outputStyle: nested, expanded, compact, compressed */
